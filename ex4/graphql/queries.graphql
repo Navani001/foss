@@ -1,0 +1,213 @@
+# ============================================
+# GraphQL Queries and Mutations
+# Uncomment any query/mutation to execute it
+# ============================================
+
+# ============================================
+# QUERIES
+# ============================================
+
+# --- Get All Tasks ---
+# query {
+#   tasks {
+#     id
+#     title
+#     description
+#     priority
+#     completed
+#     createdAt
+#     updatedAt
+#   }
+# }
+
+# --- Get Single Task by ID ---
+# query {
+#   task(id: "YOUR_TASK_ID_HERE") {
+#     id
+#     title
+#     description
+#     priority
+#     completed
+#     createdAt
+#     updatedAt
+#   }
+# }
+
+# ============================================
+# MUTATIONS
+# ============================================
+
+# --- Create Task (Full Details) ---
+# mutation {
+#   createTask(input: {
+#     title: "Complete GraphQL API"
+#     description: "Implement all CRUD operations"
+#     priority: HIGH
+#   }) {
+#     id
+#     title
+#     description
+#     priority
+#     completed
+#     createdAt
+#   }
+# }
+
+# --- Create Task (Minimal - Title Only) ---
+# mutation {
+#   createTask(input: {
+#     title: "Buy groceries"
+#   }) {
+#     id
+#     title
+#     priority
+#     completed
+#   }
+# }
+
+# --- Create Task (Medium Priority) ---
+# mutation {
+#   createTask(input: {
+#     title: "Review pull requests"
+#     description: "Check team's code changes"
+#     priority: MEDIUM
+#   }) {
+#     id
+#     title
+#     priority
+#   }
+# }
+
+# --- Create Task (Low Priority) ---
+# mutation {
+#   createTask(input: {
+#     title: "Update documentation"
+#     priority: LOW
+#   }) {
+#     id
+#     title
+#     priority
+#   }
+# }
+
+# --- Update Task (Full Update) ---
+# mutation {
+#   updateTask(id: "YOUR_TASK_ID_HERE", input: {
+#     title: "Updated Task Title"
+#     description: "Updated description"
+#     priority: HIGH
+#     completed: true
+#   }) {
+#     id
+#     title
+#     description
+#     priority
+#     completed
+#     updatedAt
+#   }
+# }
+
+# --- Update Task (Mark as Completed) ---
+# mutation {
+#   updateTask(id: "YOUR_TASK_ID_HERE", input: {
+#     completed: true
+#   }) {
+#     id
+#     title
+#     completed
+#     updatedAt
+#   }
+# }
+
+# --- Update Task (Change Priority Only) ---
+# mutation {
+#   updateTask(id: "YOUR_TASK_ID_HERE", input: {
+#     priority: LOW
+#   }) {
+#     id
+#     title
+#     priority
+#   }
+# }
+
+# --- Update Task (Change Title and Description) ---
+# mutation {
+#   updateTask(id: "YOUR_TASK_ID_HERE", input: {
+#     title: "New Title"
+#     description: "New Description"
+#   }) {
+#     id
+#     title
+#     description
+#   }
+# }
+
+# --- Delete Task ---
+# mutation {
+#   deleteTask(id: "YOUR_TASK_ID_HERE")
+# }
+
+# ============================================
+# EXAMPLE WORKFLOW
+# ============================================
+
+# Step 1: Create a new task
+# mutation {
+#   createTask(input: {
+#     title: "Learn GraphQL"
+#     description: "Complete the tutorial"
+#     priority: HIGH
+#   }) {
+#     id
+#     title
+#   }
+# }
+
+# Step 2: Get all tasks (copy the ID from previous result)
+# query {
+#   tasks {
+#     id
+#     title
+#     priority
+#     completed
+#   }
+# }
+
+# Step 3: Get specific task details
+# query {
+#   task(id: "PASTE_ID_HERE") {
+#     id
+#     title
+#     description
+#     priority
+#     completed
+#     createdAt
+#     updatedAt
+#   }
+# }
+
+# Step 4: Mark task as completed
+# mutation {
+#   updateTask(id: "PASTE_ID_HERE", input: {
+#     completed: true
+#   }) {
+#     id
+#     title
+#     completed
+#   }
+# }
+
+# Step 5: Delete the task
+# mutation {
+#   deleteTask(id: "PASTE_ID_HERE")
+# }
+
+# ============================================
+# NOTES
+# ============================================
+# - Priority values: LOW, MEDIUM, HIGH (no quotes!)
+# - Booleans: true, false (no quotes!)
+# - Strings: "use quotes"
+# - IDs: "use quotes"
+# - Replace YOUR_TASK_ID_HERE with actual MongoDB ObjectID
+# - Server URL: http://localhost:4000/graphql
