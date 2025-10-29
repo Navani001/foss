@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🔔 Social Buzz - Notifications</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #fffde7);
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    .input-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    button {
+      padding: 10px 15px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    #feed {
+      margin-top: 20px;
+    }
+    .notification {
+      background: #e8f5e9;
+      border-left: 6px solid #66bb6a;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      animation: slideIn 0.4s ease;
+    }
+    @keyframes slideIn {
+      from { transform: translateY(-10px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @media (max-width: 600px) {
+      .input-group {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h2>🔔 Social Buzz - Real-Time Updates</h2>
+
+  <div class="card">
+    <div class="input-group">
+      <input type="text" id="currentUser" placeholder="👤 Enter your username" />
+      <button onclick="subscribeUser()">Join</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="input-group">
+      <input type="text" id="targetUser" placeholder="📨 Notify user" />
+      <input type="text" id="notification" placeholder="✍ Enter message" />
+      <button onclick="sendNotification()">Send</button>
+    </div>
+  </div>
+
+  <div class="card" id="feed">
+    <!-- Notifications will appear here -->
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>
