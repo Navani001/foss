@@ -1,0 +1,18 @@
+open cmd type
+wsl --install
+wsl
+
+sudo apt update
+sudo apt install redis-server -y
+sudo service redis-server start
+
+
+
+in the vs code 
+
+open terminal ctrl + shift + ~
+npm i
+node server.js
+
+in the browser
+ https://localhost:3000/
