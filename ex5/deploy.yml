@@ -1,0 +1,28 @@
+- name: Practice Ansible locally
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Ping localhost
+      ping:
+
+    - name: Print debug message
+      debug:
+        msg: "Hello hk — Ansible is running fine inside WSL!"
+
+    - name: Create demo directory if it does not exist
+      file:
+        path: /home/{{ lookup('env','USER') }}/ansible-taskapi
+        state: directory
+        mode: '0755'
+
+    - name: Create a demo file
+      copy:
+        dest: /home/{{ lookup('env','USER') }}/ansible-taskapi/demo.txt
+        content: "This file was created by Ansible at {{ ansible_date_time.iso8601 }}"
+
+    - name: Show date and user
+      command: date
+      register: date_out
+
+    - debug:
+        var: date_out.stdout

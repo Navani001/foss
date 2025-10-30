@@ -8,12 +8,10 @@ const getAllBlogs = () => {
   return blogs;
 };
 
-// Get blog by ID
 const getBlogById = (id) => {
   return blogs.find(b => b.id === parseInt(id));
 };
 
-// Create a new blog
 const createBlog = (title, content) => {
   const newBlog = { 
     id: blogs.length + 1, 
@@ -24,7 +22,6 @@ const createBlog = (title, content) => {
   return newBlog;
 };
 
-// Update blog by ID
 const updateBlog = (id, title, content) => {
   const blog = blogs.find(b => b.id === parseInt(id));
   if (!blog) return null;
@@ -34,7 +31,6 @@ const updateBlog = (id, title, content) => {
   return blog;
 };
 
-// Delete blog by ID
 const deleteBlog = (id) => {
   const initialLength = blogs.length;
   blogs = blogs.filter(b => b.id !== parseInt(id));
